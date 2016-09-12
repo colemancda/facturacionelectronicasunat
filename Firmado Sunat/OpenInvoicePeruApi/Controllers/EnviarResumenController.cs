@@ -5,6 +5,7 @@ using OpenInvoicePeru.FirmadoSunat.Models;
 
 namespace OpenInvoicePeruApi.Controllers
 {
+    [Authorize]
     public class EnviarResumenController : ApiController
     {
         public EnviarResumenResponse Post([FromBody]EnviarDocumentoRequest request)

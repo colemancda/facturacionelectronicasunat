@@ -26,7 +26,7 @@ namespace OpenInvoicePeruApi
 						// the docs is taken as the default. If your API supports multiple schemes and you want to be explicit
 						// about them, you can use the "Schemes" option as shown below.
 						//
-						//c.Schemes(new[] { "http", "https" });
+						c.Schemes(new[] { "http", "https" });
 
 						// Use "SingleApiVersion" to describe a single version API. Swagger 2.0 includes an "Info" object to
 						// hold additional metadata for an API. Version and title are required but you can also provide
@@ -63,16 +63,16 @@ namespace OpenInvoicePeruApi
 						//    .Name("apiKey")
 						//    .In("header");
 						//
-						//c.OAuth2("oauth2")
-						//    .Description("OAuth2 Implicit Grant")
-						//    .Flow("implicit")
-						//    .AuthorizationUrl("http://petstore.swagger.wordnik.com/api/oauth/dialog")
-						//    //.TokenUrl("https://tempuri.org/token")
-						//    .Scopes(scopes =>
-						//    {
-						//        scopes.Add("read", "Read access to protected resources");
-						//        scopes.Add("write", "Write access to protected resources");
-						//    });
+						c.OAuth2("oauth2")
+							.Description("OAuth2 Implicit Grant")
+							.Flow("implicit")
+							.AuthorizationUrl("https://localhost:44391/api/Account/ExternalLogin")
+							.TokenUrl("https://localhost:44391/Token")
+							.Scopes(scopes =>
+							{
+								scopes.Add("read", "Read access to protected resources");
+								scopes.Add("write", "Write access to protected resources");
+							});
 
 						// Set this flag to omit descriptions for any actions decorated with the Obsolete attribute
 						//c.IgnoreObsoleteActions();
@@ -228,18 +228,18 @@ namespace OpenInvoicePeruApi
 						// If your API supports the OAuth2 Implicit flow, and you've described it correctly, according to
 						// the Swagger 2.0 specification, you can enable UI support as shown below.
 						//
-						//c.EnableOAuth2Support(
-						//    clientId: "test-client-id",
-						//    clientSecret: null,
-						//    realm: "test-realm",
-						//    appName: "Swagger UI"
-						//    //additionalQueryStringParams: new Dictionary<string, string>() { { "foo", "bar" } }
-						//);
+						c.EnableOAuth2Support(
+							clientId: "self",
+							clientSecret: null,
+							realm: "test-realm",
+							appName: "Swagger UI"
+						//additionalQueryStringParams: new Dictionary<string, string>() { { "foo", "bar" } }
+						);
 
 						// If your API supports ApiKey, you can override the default values.
 						// "apiKeyIn" can either be "query" or "header"                                                
 						//
-						//c.EnableApiKeySupport("apiKey", "header");
+						c.EnableApiKeySupport("apiKey", "header");
 					});
 		}
 	}

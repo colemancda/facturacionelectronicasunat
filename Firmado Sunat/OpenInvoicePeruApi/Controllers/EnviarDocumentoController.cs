@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Xml;
 using Ionic.Zip;
@@ -13,6 +9,7 @@ using OpenInvoicePeru.FirmadoSunat.Models;
 
 namespace OpenInvoicePeruApi.Controllers
 {
+    [Authorize]
     public class EnviarDocumentoController : ApiController
     {
         public EnviarDocumentoResponse Post([FromBody]EnviarDocumentoRequest request)

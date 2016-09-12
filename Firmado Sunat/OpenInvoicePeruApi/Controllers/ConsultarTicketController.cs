@@ -9,6 +9,7 @@ using OpenInvoicePeru.FirmadoSunat.Models;
 
 namespace OpenInvoicePeruApi.Controllers
 {
+    [Authorize]
     public class ConsultarTicketController : ApiController
     {
         public EnviarDocumentoResponse Post([FromBody] ConsultaTicketRequest request)

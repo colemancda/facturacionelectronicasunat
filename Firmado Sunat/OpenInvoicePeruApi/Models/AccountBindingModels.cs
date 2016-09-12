@@ -31,6 +31,14 @@ namespace OpenInvoicePeruApi.Models
     public class RegisterBindingModel
     {
         [Required]
+        [StringLength(11)]
+        public string Ruc { get; set; }
+
+        [Required]
+        [StringLength(250)]
+        public string RazonSocial { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
